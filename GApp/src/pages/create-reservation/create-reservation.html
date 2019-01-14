@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create Reservation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form name="editForm" #editForm="ngForm" (ngSubmit)="calculePrix()" novalidate>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>ID</ion-label>
+        <ion-input name="id" [(ngModel)]="reservation.id" readonly></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date Reservation</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DDTHH:mm:ssTZD" [(ngModel)]="reservation.dateReservation" name="dateReservation"></ion-datetime>
+      </ion-item>
+
+      <!--  <ion-item>
+        <ion-label>Prix</ion-label>
+        <ion-input name="prix" [(ngModel)]="reservation.prix" required></ion-input>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-label>lieu de destination</ion-label>
+        <ion-input name="lieuDestination" [(ngModel)]="reservation.lieuDestination" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>lieu de Rendez-vous</ion-label>
+        <ion-input name="lieuRDV" [(ngModel)]="reservation.lieuRDV" required></ion-input>
+      </ion-item>
+
+      <!-- 
+       <ion-item>
+         <ion-label>Voitures</ion-label>
+         <ion-select [(ngModel)]="reservation.voiture" name="voiture" required>
+          <ion-option *ngFor="let voiture of voitures" [value]="voiture">{{voiture.marque}}</ion-option>
+        </ion-select>
+      </ion-item> -->
+
+      <!--     
+       <ion-item>
+        <ion-label>Clients</ion-label>
+        <ion-select [(ngModel)]="reservation.client" name="client" required>
+          <ion-option *ngFor="let client of clients" [value]="client">{{client.nom}}</ion-option>
+        </ion-select>
+      </ion-item> -->
+
+
+    </ion-list>
+
+  <!--    <button ion-button [disabled]="editForm.form.invalid">Save</button> -->
+    <button ion-button [disabled]="editForm.form.invalid">Calculer prix</button>
+  </form>
+
+</ion-content>

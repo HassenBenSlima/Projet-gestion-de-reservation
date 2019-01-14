@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create client</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="profileForm" (ngSubmit)="reserver()">
+
+    <ion-list>
+
+    <ion-item>
+      <ion-label>ID</ion-label>
+      <ion-input formControlName="id" type="number" readonly></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input formControlName="nom" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Prénom</ion-label>
+        <ion-input formControlName="prenom" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tel</ion-label>
+        <ion-input formControlName="tel" type="string" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Email*</ion-label>
+        <ion-input formControlName="email" type="string" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+           <span *ngIf="maxb">il reste que  </span>
+            <ion-label>Max :{{ nbreplacebagagedispo}}</ion-label> 
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre de bagagges *</ion-label>
+        <ion-input formControlName="nbrebagages" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <span *ngIf="maxp">il reste que  </span>
+
+        Max :{{ placedispo }}
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre de passagers *</ion-label>
+        <ion-input formControlName="nbrepassagers" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Note supplémentaire (optionelle)</ion-label>
+        <ion-input formControlName="message" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <!--<button type="submit" ion-button [disabled]="!profileForm.valid">Reserver</button>-->
+    <button type="submit" ion-button >Reserver</button>
+
+  </form>
+
+</ion-content>

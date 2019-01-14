@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create client</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form name="editForm" #editForm="ngForm"
+        (ngSubmit)="save()" novalidate>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>ID</ion-label>
+        <ion-input name="id" [(ngModel)]="client.id" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nom</ion-label>
+        <ion-input name="nom" [(ngModel)]="client.nom" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Prénom</ion-label>
+        <ion-input name="prenom" [(ngModel)]="client.prenom" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tel</ion-label>
+        <ion-input name="tel" [(ngModel)]="client.tel" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input name="email" [(ngModel)]="client.email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Message</ion-label>
+        <ion-input name="message" [(ngModel)]="client.message"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <button ion-button [disabled]="editForm.form.invalid">Save</button>
+  </form>
+
+</ion-content>

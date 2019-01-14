@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Create Voiture</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form name="editForm" #editForm="ngForm" (ngSubmit)="save()" novalidate>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>ID</ion-label>
+        <ion-input name="id" [(ngModel)]="voiture.id" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>marque</ion-label>
+        <ion-input name="marque" [(ngModel)]="voiture.marque" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>imageURL</ion-label>
+        <ion-input name="imageURL" [(ngModel)]="voiture.imageURL" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>description</ion-label>
+        <ion-input name="description" [(ngModel)]="voiture.description" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>prix</ion-label>
+        <ion-input name="prix" [(ngModel)]="voiture.prix" required></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>maxPersonne</ion-label>
+        <ion-input name="maxPersonne" [(ngModel)]="voiture.maxPersonne" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>maxBagages</ion-label>
+        <ion-input name="maxBagages" [(ngModel)]="voiture.maxBagages" required></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <button ion-button [disabled]="editForm.form.invalid">Save</button>
+  </form>
+
+</ion-content>
