@@ -29,6 +29,7 @@ import { ListReservationsPage } from "../pages/list-reservations/list-reservatio
 import { CreateReservationPage } from "../pages/create-reservation/create-reservation";
 import { ReservationService } from "../services/reservation.service";
 import { AssignClientToreservationPage } from '../pages/assign-client-toreservation/assign-client-toreservation';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { AssignClientToreservationPage } from '../pages/assign-client-toreservat
     ListReservationsPage,
     CreateReservationPage,
     AssignClientToreservationPage,
+    LoginPage,
   ],
   imports: [
     BrowserModule, HttpModule, HttpClientModule,
@@ -74,6 +76,7 @@ import { AssignClientToreservationPage } from '../pages/assign-client-toreservat
     ListReservationsPage,
     CreateReservationPage,
     AssignClientToreservationPage,
+    LoginPage,
   ],
   providers: [
     StatusBar, GalleryService, PlacesService, Geolocation,

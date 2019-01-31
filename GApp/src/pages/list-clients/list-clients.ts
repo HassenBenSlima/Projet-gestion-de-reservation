@@ -32,7 +32,7 @@ export class ListClientsPage implements OnInit {
 
       this.clients = clients.body;
       const toast = this.toastCtrl.create({
-        message: 'La liste de clients est chargé',
+        message: 'La liste des clients est chargé',
         duration: 3000
       });
       toast.present();

@@ -23,45 +23,76 @@
 <ion-content padding>
   <ion-row>
     <ion-col col-1>
-      <ion-label>ID</ion-label>
+      <ion-label>Image de voiture</ion-label>
     </ion-col>
-    <ion-col col-2>
-      <ion-label>dateReservation</ion-label>
-    </ion-col>
+
     <ion-col col-1>
-      <ion-label>lieuDestination</ion-label>
+      <ion-label>date de reservation</ion-label>
     </ion-col>
+
     <ion-col col-1>
-        <ion-label>lieuRDV</ion-label>
-      </ion-col>
-    <ion-col col-2>
-      <ion-label>Voiture MARQUE</ion-label>
+      <ion-label>lieu de Rendez-vous</ion-label>
     </ion-col>
-    <ion-col col-2>
-      <ion-label>Client EMAIL</ion-label>
-    </ion-col>
+
     <ion-col col-1>
-      <ion-label>Client TEL</ion-label>
+      <ion-label>Lieu de destination</ion-label>
     </ion-col>
+
+    <ion-col col-2>
+      <ion-label> L'email de client</ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>le téléphone de client</ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>Nombre de passagers</ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>Nombre de bagages</ion-label>
+    </ion-col>
+
     <ion-col col-3>
       <!-- <ion-icon name="cog"></ion-icon> -->
       <ion-label>Action</ion-label>
     </ion-col>
   </ion-row>
   <ion-row *ngFor="let reservation of reservations">
+
     <ion-col col-1>
-      <ion-label>{{reservation.id}}</ion-label>
+      <ion-label><img src="http://127.0.0.1:8887/{{reservation.voiture.imageURL}}"></ion-label>
     </ion-col>
-    <ion-col col-2>
+
+    <ion-col col-1>
       <ion-label>{{reservation.dateReservation}}</ion-label>
     </ion-col>
+
+    <ion-col col-1>
+      <ion-label>{{reservation.lieuRDV}}</ion-label>
+    </ion-col>
+
     <ion-col col-1>
       <ion-label>{{reservation.lieuDestination}}</ion-label>
     </ion-col>
+
+    <ion-col col-2>
+      <ion-label>{{reservation.client.email}}</ion-label>
+    </ion-col>
+
     <ion-col col-1>
-        <ion-label>{{reservation.lieuRDV}}</ion-label>
-      </ion-col>
- 
+      <ion-label>{{reservation.client.tel}}</ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>{{reservation.countOfPassenger}}</ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>{{reservation.countOfLuggage}}</ion-label>
+    </ion-col>
+
     <ion-col col-3>
       <ion-buttons>
         <button ion-button>
@@ -75,7 +106,6 @@
         </button>
       </ion-buttons>
     </ion-col>
-
 
   </ion-row>
 </ion-content>

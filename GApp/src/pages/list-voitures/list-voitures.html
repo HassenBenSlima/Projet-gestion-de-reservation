@@ -13,7 +13,6 @@
 
 </ion-header>
 
-
 <ion-content padding>
   <ion-row>
     <ion-col col-12>
@@ -27,26 +26,15 @@
   </ion-row>
   <ion-row>
     <ion-col col-12>
-      <ion-label>* Le voyage est dans la : {{reservation?.dateReservation}}</ion-label>
+      <ion-label>* Le voyage est dans la : {{reservation?.dateReservation | date:'medium'}}</ion-label>
     </ion-col>
+    <hr />
   </ion-row>
 
   <ion-row>
-    <ion-col col-1>
-      <ion-label>ID</ion-label>
-    </ion-col>
-    <ion-col col-1>
-      <ion-label>Marque</ion-label>
-    </ion-col>
-    <ion-col col-1>
-      <ion-label>ImageURL</ion-label>
-    </ion-col>
 
-    <ion-col col-1>
-      <ion-label>Description</ion-label>
-    </ion-col>
-    <ion-col col-1>
-      <ion-label>Prix</ion-label>
+    <ion-col col-2>
+      <ion-label>Images</ion-label>
     </ion-col>
 
     <ion-col col-1>
@@ -57,42 +45,56 @@
       <ion-label>max Bagages</ion-label>
     </ion-col>
 
-    <ion-col col-3>
+    <ion-col col-1>
+      <ion-label>Marque</ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>Prix</ion-label>
+    </ion-col>
+
+    <ion-col col-2>
+      <ion-label>Description</ion-label>
+    </ion-col>
+
+    <ion-col col-4>
       <!-- <ion-icon name="cog"></ion-icon> -->
       <ion-label>Action</ion-label>
     </ion-col>
   </ion-row>
   <ion-row *ngFor="let voiture of voitures">
-    <ion-col col-2>
-      <ion-label>{{voiture.id}}</ion-label>
-    </ion-col>
 
     <ion-col col-2>
+      <ion-label><img src="http://127.0.0.1:8887/{{voiture.imageURL}}"></ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>
+        <button ion-button color="danger"> {{voiture.maxPersonne}}</button>
+      </ion-label>
+    </ion-col>
+
+    <ion-col col-1>
+      <ion-label>
+        <button ion-button color="danger">{{voiture.maxBagages}}</button>
+      </ion-label>
+    </ion-col>
+
+    <ion-col col-1>
       <ion-label>{{voiture.marque}}</ion-label>
     </ion-col>
 
-    <ion-col col-2>
-      <ion-label>{{voiture.prix * dist}}</ion-label>
+    <ion-col col-1>
+      <ion-label>
+        <button ion-button color="light">{{voiture.prix * dist}} <ion-icon name="logo-usd"></ion-icon></button>
+      </ion-label>
     </ion-col>
-
 
     <ion-col col-2>
       <ion-label>{{voiture.description}}</ion-label>
     </ion-col>
 
-    <ion-col col-2>
-      <ion-label>{{voiture.maxPersonne}}</ion-label>
-    </ion-col>
-
-
-    <ion-col col-2>
-      <ion-label>{{voiture.maxBagages}}</ion-label>
-    </ion-col>
-    <ion-col col-2>
-      <ion-label><img src="http://127.0.0.1:8887/{{voiture.imageURL}}"></ion-label>
-    </ion-col>
-
-    <ion-col col-3>
+    <ion-col col-4>
       <ion-buttons>
         <button ion-button>
           <ion-icon name="eye"></ion-icon>
@@ -104,7 +106,7 @@
           <ion-icon name="trash" (click)="deleteVoiture(voiture.id)"></ion-icon>
         </button>
 
-          <button ion-button color="danger" (click)="chooseAndContinue(voiture.id)">Danger</button>
+        <button ion-button color="secondary" (click)="chooseAndContinue(voiture.id)">choisir & continuer</button>
 
       </ion-buttons>
     </ion-col>

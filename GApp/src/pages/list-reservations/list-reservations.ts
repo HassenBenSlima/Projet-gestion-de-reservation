@@ -72,6 +72,10 @@ export class ListReservationsPage implements OnInit {
             this.reservationService.deleteReservation(id).subscribe((response) => {
 
               this.reservations = this.reservations.filter((reservation: Reservation) => reservation.id != id);
+
+              const index = this.reservations.findIndex(reservation => reservation.id === id);
+              this.reservations.splice(index, 1);
+          
               const toast = this.toastCtrl.create({
                 message: 'La reservation est supprimé: ' + id,
                 duration: 3000

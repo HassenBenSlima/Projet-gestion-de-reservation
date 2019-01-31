@@ -13,41 +13,19 @@ import { ListVoituresPage } from "../pages/list-voitures/list-voitures";
 import { CreateReservationPage } from "../pages/create-reservation/create-reservation";
 import { CreateVoiturePage } from "../pages/create-voiture/create-voiture";
 import { ListReservationsPage } from "../pages/list-reservations/list-reservations";
-import { AssignClientToreservationPage } from '../pages/assign-client-toreservation/assign-client-toreservation';
 import { ClientService } from '../services/client.service';
+import { LoginPage } from '../pages/login/login';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp implements OnInit {
 
-  rootPage: any = HomePage;
-
-  menus = [
-    { title: 'Home', component: HomePage },
-    { title: 'My Gallery', component: GalleryPage },
-    { title: 'My Meteo', component: MeteoPage },
-    { title: 'My Places', component: PlacesPage },
-    { title: 'Create Client', component: CreateClientsPage },
-    { title: 'List Clients', component: ListClientsPage },
-    { title: 'Create Voiture', component: CreateVoiturePage },
-    { title: 'List Voitures', component: ListVoituresPage },
-    { title: 'Create Reservation', component: CreateReservationPage },
-    { title: 'List Reservations', component: ListReservationsPage },
-    { title: 'AssignClientToreservationPage', component: AssignClientToreservationPage },
-
-  ];
-
-
-  ngOnInit(): void {
-    
-    throw new Error("Method not implemented.");
-  }
-
-
-
-
-
+  rootPage: any = LoginPage;
+  interval;
+  menus = [];
+  logIn: string;
+  passWord: string;
 
   constructor(platform: Platform,
     statusBar: StatusBar,
@@ -61,9 +39,59 @@ export class MyApp implements OnInit {
     });
   }
 
+
+
+  ngOnInit(): void {
+    this.startTimer()
+
+    
+
+  }
+
   onPage(m) {
     this.rootPage = m.component;
   }
 
+
+  startTimer() {
+
+    this.interval = setInterval(() => {
+      this.logIn = this.clientService.userlogin;
+      this.passWord = this.clientService.userpassword;
+      console.log(this.logIn + " || " + this.passWord);
+
+
+      if ((this.logIn == 'admin') && (this.passWord == 'admin')) {
+        this.menus = [
+          { title: 'Home', component: HomePage },
+          { title: 'Create Client', component: CreateClientsPage },
+          { title: 'List Clients', component: ListClientsPage },
+          { title: 'Create car', component: CreateVoiturePage },
+          { title: 'List cars', component: ListVoituresPage },
+          { title: 'Create Reservation', component: CreateReservationPage },
+          { title: 'List Reservations', component: ListReservationsPage },
+          { title: 'Log out', component: LoginPage },
+        ];
+      }
+  
+      if ((this.passWord == 'client') && (this.logIn == 'client')) {
+        this.menus = [
+          { title: 'Home', component: HomePage },
+          { title: 'My Gallery', component: GalleryPage },
+          { title: 'My Meteo', component: MeteoPage },
+          { title: 'My Places', component: PlacesPage },
+          { title: 'Create Client', component: CreateClientsPage },
+          { title: 'List Clients', component: ListClientsPage },
+          { title: 'Create car', component: CreateVoiturePage },
+          { title: 'List cars', component: ListVoituresPage },
+          { title: 'Create Reservation', component: CreateReservationPage },
+          { title: 'List Reservations', component: ListReservationsPage },
+          { title: 'Log out', component: LoginPage },
+  
+        ];
+      }
+
+    }, 1000);
+  }
 }
 

@@ -2,7 +2,7 @@ export class PLace {
   title: string;
   country?: string;
   city?: string;
-  timestamp?: number;
+  timestamp?: number;ََّّ
   keywords?: string;
   location?: {
     longitude: number,

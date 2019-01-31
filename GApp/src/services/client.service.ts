@@ -12,7 +12,8 @@ export class ClientService {
 
   resourceUrl = SERVEUR_URL + 'api/clients';
 
-  user = '';
+  userlogin = '';
+  userpassword = '';
 
 
 

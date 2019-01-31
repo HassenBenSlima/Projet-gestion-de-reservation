@@ -117,9 +117,9 @@ export class AssignClientToreservationPage implements OnInit {
       return;
     }
 
-    this.reservation.countOfLuggage = this.profileForm.value.countOfLuggage;
-    this.reservation.countOfPassenger = this.profileForm.value.countOfLuggage;
 
+
+    console.log(this.reservation.countOfLuggage + "||" + this.reservation.countOfPassenger);
 
     this.clientService.findClientByEmail(this.mail).subscribe((client: HttpResponse<Client>) => {
 
@@ -137,10 +137,10 @@ export class AssignClientToreservationPage implements OnInit {
       //console.log(" client : id " + this.reservation.client.id);
       if (this.reservation.client.id !== undefined) {
 
+        this.reservation.countOfLuggage = this.profileForm.value.countOfLuggage;
+        this.reservation.countOfPassenger = this.profileForm.value.countOfPassenger;
+
         this.reservationService.createReservation(this.reservation).subscribe((reservation: HttpResponse<Client>) => {
-
-
-
 
           const toast = this.toastCtrl.create({
             message: 'La reservation est sauvegardé ',

@@ -6,7 +6,6 @@ import { Voiture } from "../../model/voiture.model";
 import { CreateVoiturePage } from "../create-voiture/create-voiture";
 import { VoitureService } from "../../services/voiture.service";
 import { Reservation } from '../../model/reservation.model';
-import { CreateClientsPage } from '../create-clients/create-clients';
 import { AssignClientToreservationPage } from '../assign-client-toreservation/assign-client-toreservation';
 
 /**
@@ -39,7 +38,8 @@ export class ListVoituresPage implements OnInit {
     this.loadAll();
     this.reservation = this.navParams.get('rsv');
     // console.log("this.reservation :" + this.reservation.lieuDestination);
-    this.dist = parseInt(Math.random().toFixed(2));
+    this.dist = Math.floor(100 + Math.random() * 900);
+    //this.dist = (Math.random() + 100)
 
   }
 
@@ -48,7 +48,7 @@ export class ListVoituresPage implements OnInit {
 
       this.voitures = voitures.body;
       const toast = this.toastCtrl.create({
-        message: 'La liste de clients est chargé',
+        message: 'La liste des Voitures est chargé',
         duration: 3000
       });
       toast.present();
