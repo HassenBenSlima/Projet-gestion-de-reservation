@@ -3,7 +3,7 @@ pour utiliser ce projet : gestion de reservation des voitures (location de voitu
 il faut tout d'abord utilise :
  
   * spring boot 
-  * mysql
+  * MySQL
   * npm version : 5.6.0
   * ionic version : 3.9.2
   * node version : 8.10.0
